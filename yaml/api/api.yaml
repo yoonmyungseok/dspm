@@ -1,0 +1,23 @@
+- route:
+    id: api-test
+    auto-startup: true
+    from:
+#      uri: timer://api-test?period=5000
+      uri: "direct:sayHello"
+      steps:
+        - process:
+            ref: helloWorldProcessor
+        - log: ${body}
+#        - to: "direct:sayBye"
+        - to: rest:get:/rest?host=localhost:7777
+
+#from:
+#  uri: "direct:sayHello"
+##  uri: "file:C:/dev/study/dspm/input"
+##  uri: rest:get:/say/hello?host=localhost:1234
+#  steps:
+#    - log: aaa
+#    - process:
+#        ref: helloWorldProcessor
+##    - to: rest:get:/rest?host=localhost:9999
+#    - log: ${body}

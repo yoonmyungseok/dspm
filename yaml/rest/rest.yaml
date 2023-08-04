@@ -1,0 +1,11 @@
+- route:
+    id: rest-get
+    auto-startup: true
+    from:
+#      uri: timer://rest-get?period=5000
+#      uri: rest:get:/rest?host=localhost:7777
+      uri: "direct:sayBye"
+      steps:
+        - process:
+            ref: byeWorldProcessor
+        - log: ${body}

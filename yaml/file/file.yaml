@@ -1,0 +1,14 @@
+- route:
+    id: file-test
+    auto-startup: true
+    from:
+      uri: "file:C:/dev/study/dspm/input"
+#      uri: timer://file-test?period=5000
+#      uri: rest:get:file?host=localhost:8888
+#      uri: direct:start
+      steps:
+        - log: ${body}
+        - process:
+            ref: helloWorldProcessor
+        - to: "file:C:/dev/study/dspm/output"
+#        - to: rest:get:/rest?host=localhost:7777

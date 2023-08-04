@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.14'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'go.kr'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '11'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.20.6'
+    implementation 'org.apache.camel:camel-endpointdsl:3.20.6'
+    implementation 'org.apache.camel:camel-yaml-dsl:3.20.6'
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    implementation 'org.apache.camel.springboot:camel-servlet-starter:3.20.6'
+    implementation 'org.apache.camel.springboot:camel-rest-starter:3.20.6'
+    implementation 'org.apache.camel.springboot:camel-http-starter:3.20.6'
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

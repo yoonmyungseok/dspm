@@ -1,0 +1,29 @@
+#spring:
+#  profiles:
+#    active: api
+server:
+  port: 9999
+camel:
+  springboot:
+    main-run-controller: true
+#    routes-include-pattern: file:yaml/main/*.yaml
+---
+spring:
+  config:
+    activate:
+      on-profile: api
+server:
+  port: 1234
+camel:
+  springboot:
+    routes-include-pattern: file:yaml/api/*.yaml
+---
+spring:
+  config:
+    activate:
+      on-profile: rest
+server:
+  port: 7777
+camel:
+  springboot:
+    routes-include-pattern: file:yaml/rest/*.yaml

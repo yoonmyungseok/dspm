@@ -1,0 +1,6 @@
+GET http://localhost:8888/file
+
+###
+GET http://localhost:1234/say/hello
+###
+GET http://localhost:7777/rest
